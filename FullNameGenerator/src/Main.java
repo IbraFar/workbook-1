@@ -11,10 +11,15 @@ public class Main {
 
         middleName = (middleName.length() == 1)? (middleName + "."): middleName;
 
+
+
+
+
         if(!suffix.isBlank()) {
-            System.out.println(firstName + " " + middleName + " " + lastName + ", " + suffix);
+            System.out.println(firstLetterCapital(firstName) + " " + firstLetterCapital(middleName) + " "
+                    + firstLetterCapital(lastName) + ", " + firstLetterCapital(suffix));
         }else{
-            System.out.println(firstName + " " + middleName + " " + lastName);
+            System.out.println(firstLetterCapital(firstName) + " " + firstLetterCapital(middleName) + " " + firstLetterCapital(lastName));
         }
 
 
@@ -23,5 +28,9 @@ public class Main {
     public static String getStringInput(Scanner scanner, String prompt){
         System.out.println(prompt);
         return scanner.nextLine().trim();
+    }
+
+    public static String firstLetterCapital(String name){
+        return Character.toUpperCase(name.charAt(0)) + name.substring(1);
     }
 }
